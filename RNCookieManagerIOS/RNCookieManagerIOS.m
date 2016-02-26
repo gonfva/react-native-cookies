@@ -57,6 +57,14 @@ RCT_EXPORT_METHOD(clearAll:(RCTResponseSenderBlock)callback) {
     callback(@[[NSNull null], @"success"]);
 }
 
+RCT_EXPORT_METHOD(clearAndPersist:(RCTResponseSenderBlock)callback) {
+    NSHTTPCookieStorage *cookieStorage = [NSHTTPCookieStorage sharedHTTPCookieStorage];
+    for (NSHTTPCookie *c in cookieStorage.cookies) {
+        [cookieStorage deleteCookie:c];
+    }
+    callback(@[[NSNull null], @"success"]);
+}
+
 // TODO: return a better formatted list of cookies per domain
 RCT_EXPORT_METHOD(getAll:(RCTResponseSenderBlock)callback) {
     NSHTTPCookieStorage *cookieStorage = [NSHTTPCookieStorage sharedHTTPCookieStorage];

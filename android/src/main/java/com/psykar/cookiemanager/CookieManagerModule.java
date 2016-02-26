@@ -67,4 +67,10 @@ public class CookieManagerModule extends ReactContextBaseJavaModule {
     public void clearAll(final Callback callback) {
         this.cookieHandler.clearCookies(callback);
     }
+
+    @ReactMethod
+    public void clearAndPersist(final Callback callback) {
+        this.cookieHandler.destroy();
+        callback.invoke();
+    }
 }
