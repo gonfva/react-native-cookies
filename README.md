@@ -1,6 +1,6 @@
 ## react-native-cookies
 
-Cookie manager for react native.
+Fork of react-native-cookies. It's a cookie manager for react native.
 
 ### Installation
 
